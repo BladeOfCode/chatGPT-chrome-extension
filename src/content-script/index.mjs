@@ -35,7 +35,7 @@ function commando() {
   this.f_more_results=0;
 }
 
-commando.prototype.displayResult =function(answer,container) {
+commando.prototype.displayResult = function(answer,container) {
        if(!answer.is_code){
         var newText = document.createElement("p");
             newText.textContent=answer.answer;
@@ -141,14 +141,14 @@ async function run(question) {
 }
 
 
-let allAnswers=[];
+let allAnswers = [];
 function parseIntoAnswers(content,container,isDone){
     if(content.length > 1){
-        let answersRaw=content.split("\n"); 
-        let answers2=[];
-        for (let j = 0;j<answersRaw.length;j++){
+        let answersRaw = content.split("\n"); 
+        let answers2 = [];
+        for (let j = 0; j < answersRaw.length; j++){
             //push the last answer so we can remove it later
-            if(answersRaw[j].length > 0 || answersRaw.length==j){
+            if(answersRaw[j].length > 0 || answersRaw.length == j){
                 answers2.push(answersRaw[j]);
             }
         }
@@ -158,22 +158,22 @@ function parseIntoAnswers(content,container,isDone){
         }
 
         let answers=[];
-        let isCode=false;
-        let fullAnswer="";
-        for (let t = 0;t<answers2.length;t++){
+        let isCode = false;
+        let fullAnswer = "";
+        for (let t = 0;t < answers2.length; t++){
 
-            if(answers2[t]=='```'){
+            if(answers2[t] == '```'){
                 if(isCode){
                     //end the code
                     answers.push({"is_code":true,"answer":fullAnswer})
-                    fullAnswer="";
-                    isCode=false;
+                    fullAnswer = "";
+                    isCode = false;
                 }else{
-                    isCode=true;
+                    isCode = true;
                 }
             }else{
                 if(isCode){
-                    fullAnswer+=answers2[t]+"\n";
+                    fullAnswer += answers2[t] + "\n";
                 }else{
                     answers.push({"is_code":false,"answer":answers2[t]})
                 }
@@ -185,18 +185,18 @@ function parseIntoAnswers(content,container,isDone){
         if(answers.length){
            if(!doneLoading){
                 container.removeChild(loading);
-                doneLoading=true;
+                doneLoading = true;
             }
         }
 
         if(answers.length > allAnswers.length){
-            for (let i = allAnswers.length;i<answers.length;i++){
-                let answer={};
-                    answer.id=12;
-                    answer.answer=answers[i].answer;
-                    answer.user_id=4;
-                    answer.created_at=4;
-                    answer.is_code=answers[i].is_code;
+            for (let i = allAnswers.length; i < answers.length; i++){
+                let answer = {};
+                    answer.id = 12;
+                    answer.answer = answers[i].answer;
+                    answer.user_id = 4;
+                    answer.created_at = 4;
+                    answer.is_code = answers[i].is_code;
                     allAnswers.push(answer);
                     co.displayResult(answer,container);
             }
