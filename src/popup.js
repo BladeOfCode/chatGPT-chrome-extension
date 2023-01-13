@@ -1,5 +1,7 @@
+//this is chrome extension.
 const port = chrome.runtime.connect();
 
+//enable caching.
 document.getElementById('enable_caching').addEventListener('change', function(){
     console.log(port);
   if (event.currentTarget.checked) {
@@ -12,6 +14,8 @@ document.getElementById('enable_caching').addEventListener('change', function(){
         });
   }
 });
+
+//enable keypress.
 document.getElementById('enable_keypress').addEventListener('change', function(){
   if (event.currentTarget.checked) {
         chrome.storage.sync.set({'enable_keypress': true},function(){
@@ -24,6 +28,7 @@ document.getElementById('enable_keypress').addEventListener('change', function()
   }
     chrome.runtime.sendMessage({ "action":"updateSettings" });
 });
+
 
 chrome.storage.sync.get(['enabled_caching','enable_keypress'], function(all_items) {
     var enable_caching=(all_items.hasOwnProperty('enabled_caching')) ? all_items.enabled_caching : true; 
