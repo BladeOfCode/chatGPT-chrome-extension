@@ -9,22 +9,24 @@
   max-width:436px !important;
   position:relative;
 }
+
 .chat_gpt_container_enhanced p:first-of-type{
     margin-top:0px;
 }
+
 .chat_gpt_container_enhanced p:last-of-type{
     margin-bottom:0px;
 }
 
 .chat_gpt_container_attribution{
-    position:absolute;
-    bottom:-16px;
-    right:0px;
-    font-size:12px;
+    position: absolute;
+    bottom: -16px;
+    right: 0px;
+    font-size: 12px;
 }
 
 .chat_gpt_container_enhanced p {
-    line-height:1.5em;
+    line-height: 1.5em;
 }
 
 .chat_gpt_container_enhanced .loading {
@@ -45,13 +47,13 @@
   height: fit-content;
 }
 .gpt_commando_code_block{
-    display:block;
-    width:100%;
-    position:relative;
+    display: block;
+    width: 100%;
+    position: relative;
 }
 
 .gpt_commando_code_block_outer{
-    position:relative;
-    direction:ltr !important;
-    max-width:446px;
+    position: relative;
+    direction: ltr !important;
+    max-width: 446px;
 }
