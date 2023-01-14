@@ -48,7 +48,6 @@
   border-right: none;
   width: 0;
 }
-/* Shown when moving in bi-directional text */
 .TaysCodeMirror div.TaysCodeMirror-secondarycursor {
   border-left: 1px solid silver;
 }
@@ -106,7 +105,6 @@
   position: absolute;
 }
 
-/* DEFAULT THEME */
 .TaysCodeMirror .cm-s-default .cm-header {color: blue;}
 .TaysCodeMirror .cm-s-default .cm-quote {color: #090;}
 .TaysCodeMirror .cm-negative {color: #d44;}
